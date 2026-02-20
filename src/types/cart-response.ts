@@ -3,7 +3,7 @@
 export interface CartResponse{
     status:string
     numOfCartItems:number
-    numOfWishItems:number
+    
     cartId:string
     data:CartItem
 }

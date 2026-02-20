@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import { DropdownMenuBasic } from './../dropDown/DropDown';
 import { useQuery } from '@tanstack/react-query'
 import { CartResponse } from '@/types/cart-response'
+import { WishResponse } from '@/types/wish-response'
 
 
 export default function Navbar() {
@@ -21,6 +22,20 @@ export default function Navbar() {
     },
 
   })
+
+
+const{data:wishData  } =useQuery<WishResponse>({
+    queryKey:['get-wishlist'],
+    queryFn:async()=>{
+      const resp=await fetch('/api/wishlist')
+      const payload=await resp.json()
+      console.log(payload);
+      return payload
+    },
+
+  })
+
+
   const {status , data :session}=useSession()
   console.log(status);
 

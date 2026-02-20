@@ -39,4 +39,6 @@ export interface Brand {
   name: string
   slug: string
   image: string
+  products?: ProductItem[]
+  productsCount?: number
 }
